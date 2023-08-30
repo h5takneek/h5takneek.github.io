@@ -259,7 +259,7 @@ Normal text represents the absence of a letter.
 
 ## Example
 
-![Image showing gameplay](strikes.png)
+![Image showing gameplay](gplay.png)
 
 ### Description of Agent
 
