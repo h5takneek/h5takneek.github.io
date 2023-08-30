@@ -55,7 +55,7 @@ implemented as a dictionary.
 
 **Depth** **of** **a** **Branch:** Number of words in the branch
 
-<h3>Approachto solve</h3>
+<h3>Approach to solve</h3>
 
 **Breadth-first search algorithm**
 
