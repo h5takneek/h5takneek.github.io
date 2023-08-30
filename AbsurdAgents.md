@@ -22,5 +22,7 @@ in the report. Rule of thumb, more stats == more marks. </li>
 </ol>
 
 <h3>Interface</h3>
-We present a novel interface for implementing a server that allows us to play word games like Wordle, Hangman, etc. In our implementation, the user must choose a game to which the directory would change. For example, if the user selects “Wordle”, our code will use the “osevaluate.call” method to switch to the Wordle directory. Subsequently, the user would be asked if they want the agent to suggest the appropriate guess or the agent to play the game on several iterations and produce stats. If the latter is selected, the stats produced would be the accuracy and number of strikes it needed on average for guessing.
+We present a novel interface for implementing a server that allows us to play word games like Wordle, Hangman, etc. In our implementation, the user must choose a game to which the directory would change. For example, if the user selects “Wordle”, we switch to the Wordle directory. Subsequently, the user would be asked if they want the agent to suggest the appropriate guess or the agent to play the game on several iterations and produce stats. If the latter is selected, the stats produced would be the accuracy and number of strikes it needed on average for guessing.
+
+
 
