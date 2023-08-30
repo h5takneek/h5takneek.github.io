@@ -279,6 +279,30 @@ The solver achieves 100% accuracy and average strike rates around 3.2-3.7, avera
 ![Graph](strikes.png)
 
 <h2>Jumble</h2>
+# Unjumble the Word
+
+**Unjumble the Word** is the ultimate brain-teasing challenge that puts your puzzle-solving skills to the test.
+
+## Definitions
+
+- **jumbleSolver:** The automated Word Unjumble Solver object, an ingenious Python-based agent designed to efficiently tackle the trickiest word jumbles with extremely high accuracy in the Word Unjumble game.
+- **selectedWord:** The word that is selected by the game to maximize complexity for the user.
+- **jumbledWord:** The jumbled word that is generated for the user to decipher.
+- **The User:** The person who engages themselves in playing the unjumble game.
+
+## Approach
+
+The implementation of this game involves two main parts:
+
+### The Unjumble-the-Word Game
+
+We start by choosing a word from a Python list in an external file containing 500 words. These words were statistically selected from 3000 words to maximize complexity for the user, utilizing the built-in random library. The order of letters in the selected word is then randomized using the Mersenne Twister PRNG algorithm as the core generator.
+
+The user is presented with the jumbled word and prompted to guess the original word. If the user's guessed word is correct, they win, receive congratulations, and the game ends. If the guess is incorrect, the user is informed and prompted to guess again. This feedback process continues until the user guesses the correct word.
+
+### The Agent
+
+The **Word Unjumble Solver** is an ingenious Python-based agent designed to effortlessly conquer the trickiest word jumbles in the game. The solver is trained on an extensive vocabulary and can efficiently guess the right word with an extremely high accuracy. This is achieved by a highly customized implementation of linear search. The algorithm boasts near-perfect accuracy and blazing-fast speed, producing the guess in less than 100ms.
 
 <h2>Word Ladder</h2>
 
