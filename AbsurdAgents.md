@@ -197,7 +197,36 @@ def vote(self, mask):
 
 
 <h2>Wordle</h2>
+Wordle is a word-guessing game where the player has to guess a five-letter word in six attempts. The game provides feedback after each guess, indicating which letters are correct and in the right position, which letters are correct but in the wrong position, and which letters are incorrect. The player can use this feedback to make educated guesses and narrow down the possible words.
 
+The game is implemented in Python using the `random` module to select a random word from a list of valid words. The player's guesses are taken as input using the `input()` function, and the feedback is generated using a combination of string manipulation and list comprehension.
+
+## About the agent
+
+The approach to solving Wordle involves generating a list of possible words based on the feedback provided by the game. This list is initially populated with all valid five-letter words, and then filtered down based on the feedback received for each guess.
+
+The first step is to generate a list of all possible combinations of five letters, which is done using the `itertools` module. This list is then filtered down based on the feedback received for each guess, using a combination of string manipulation and list comprehension.
+
+The filtering process involves comparing each possible word to the feedback received for the previous guess, and eliminating any words that do not match. This is done by comparing the position and identity of each letter in the word to the feedback received, and eliminating any words that do not match.
+
+Once the list of possible words has been narrowed down to a few candidates, the solver can make an educated guess based on the frequency of each letter in the English language. This involves calculating the frequency of each letter in the remaining possible words, and selecting the most common letter as the next guess.
+
+The process is repeated until the correct word is guessed, or until the maximum number of guesses is reached.
+
+## Statistics
+
+Two approaches were considered while creating an agent for playing the game - one based on information theory and other based on exhaustive search.
+
+The information theory-based approach is implemented in the `info` function in the `solver.py` file. This approach involves calculating the entropy of each possible word based on the feedback received for each guess. The entropy is a measure of the amount of uncertainty associated with a random variable, and in this case, it represents the number of possible words that match the feedback received. The solver then selects the word with the lowest entropy as the next guess, as this word provides the most information about the remaining possible words.
+
+On the other hand, the exhaustive search approach involves generating all possible combinations of five letters and testing each one against the feedback received for each guess. This approach is computationally expensive and not practical for large dictionaries, but it guarantees a correct solution within a finite number of guesses. 
+
+Both approaches were implemented, and accuracy was compared. Information theory was found to have a higher level of accuracy but higher computational power was required. A tradeoff was achieved between the two approaches in the final code.
+
+We have achieved a `91.5%` accuracy using a dictionary of `5757` words, with an average strike rate of `3.491`.
+
+
+![Acc vs iterations](success_rate.png)
 <h2>Nerdle</h2>
  Nerdle
 
@@ -230,7 +259,7 @@ Normal text represents the absence of a letter.
 
 ## Example
 
-![Image showing gameplay](image.png)
+![Image showing gameplay](nerdle_stats.png)
 
 ### Description of Agent
 
