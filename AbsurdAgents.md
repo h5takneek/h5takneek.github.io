@@ -24,5 +24,49 @@ in the report. Rule of thumb, more stats == more marks. </li>
 <h3>Interface</h3>
 We present a novel interface for implementing a server that allows us to play word games like Wordle, Hangman, etc. In our implementation, the user must choose a game to which the directory would change. For example, if the user selects “Wordle”, we switch to the Wordle directory. Subsequently, the user would be asked if they want the agent to suggest the appropriate guess or the agent to play the game on several iterations and produce stats. If the latter is selected, the stats produced would be the accuracy and number of strikes it needed on average for guessing.
 
+<h2>Hangman</h2>
 
+<h2>Wordle</h2>
 
+<h2>Nerdle</h2>
+
+<h2>Jumble</h2>
+
+<h2>Word Ladder</h2>
+
+**Definitions**
+
+**Connected words:** Two words are said to be connected to each
+other if they both have the same characters at all except **only**
+**one** index.
+
+**Mesh:** A data structure containing all the connections of words,
+implemented as a dictionary.
+
+**Start:** The initial word provided by the server.
+
+**Target:** The final word we have to reach from the start.
+
+**Current** **word:** The word we currently are at.
+
+**Step:** The number of changes made to the start.
+
+**Branch:** One path from the start to the current word.
+
+**Depth** **of** **a** **Branch:** Number of words in the branch
+
+<h3>Approachto solve</h3>
+
+**Breadth-first search algorithm**
+
+The Breadth-first search algorithm is based on searching for all paths
+that are possible to be taken from the start. Each path or branch is
+calculated simultaneously, i.e., the depth of all branches is the same
+after each iteration.
+
+All the words explored during computations are stored after each
+iteration, and the target is searched each time before the next
+iteration of the loop starts. Once we find the target, we exit the loop,
+and each branch is then searched for the target. The branch containing
+the target is the shortest path possible i.e. the optimal solution of
+the given word ladder.
