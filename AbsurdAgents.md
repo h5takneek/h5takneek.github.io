@@ -18,7 +18,7 @@ in the report. Rule of thumb, more stats == more marks. </li>
   <li>Hangman: Hangman is a guessing game. We'll have a pre-decided word, which we will have to guess. he word to guess is represented by a row of dashes representing each letter or number of the word. Rules may permit or forbid proper nouns, such as names, places, brands, or slang. If the guessing player suggests a letter which occurs in the word, the other player writes it in all its correct positions. Otherwise kf the letter is not in the word then, one of our chances will be eliminated. </li>
   <li>Nerdle: Nerdle is a guessing game like Wordle, but here we have to form a basic mathematical equation using numbers and symbols. </li>
   <li>Word Ladder: Word ladder is a word game where we have the start word and a specified end word. We have to find a chain of other words to link the two, in which two adjacent words (that is, words in successive steps) differ by one letter.</li>
-  <li>Jumble: In this game, we pick a word from the lexicon, and try ro unjumble it. </li>
+  <li>Jumble: In this game, we pick a word from the lexicon, and try to unjumble it. </li>
 </ol>
 
 <h3>Interface</h3>
