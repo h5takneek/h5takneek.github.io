@@ -22,7 +22,12 @@ in the report. Rule of thumb, more stats == more marks. </li>
 </ol>
 
 <h3>Interface</h3>
-We present a novel interface for implementing a server that allows us to play word games like Wordle, Hangman, etc. In our implementation, the user must choose a game to which the directory would change. For example, if the user selects “Wordle”, we switch to the Wordle directory. Subsequently, the user would be asked if they want the agent to suggest the appropriate guess or the agent to play the game on several iterations and produce stats. If the latter is selected, the stats produced would be the accuracy and number of strikes it needed on average for guessing.
+We present a novel interface for implementing a server that allows us to play word games like Wordle, Hangman, etc. 
+Steps you should follow:
+- Choose the word game. 
+- Choose whether you want to play as user or you want the agent to play. 
+- If former option is selected then our program will help the user (in case of wordle, and nerdle) in guessing or will make the user play. </li>
+- If the latter option is selceted then the agent will ask us to enter number of iterations and play the games. The stats: `accuracy` and `strike rate` will be produced after running.
 
 <h2>Hangman</h2>
 
