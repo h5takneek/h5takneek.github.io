@@ -11,6 +11,13 @@ in the report. Rule of thumb, more stats == more marks. </li>
 </ol>
 
 <h2>Introduction</h2>
+We present a novel interface for implementing a server that allows us to play word games like Wordle, Hangman, etc. 
+Steps you should follow:
+- Choose the word game. 
+- Choose whether you want to play as user or you want the agent to play. 
+- If former option is selected then our program will help the user (in case of wordle, and nerdle) in guessing or will make the user play. </li>
+- If the latter option is selceted then the agent will ask us to enter number of iterations and play the games. The stats: `accuracy` and `strike rate` will be produced after running.
+
 <h3>The Games</h3>
 <ol>
   <li>Wordle: Wordle is a web based word game. Players have six attempts to guess a five-letter word, with feedback given for each guess in the form of colored tiles indicating when letters match or occupy the correct position. Every day, a five-letter word is chosen which players aim to guess within six tries. After every guess, each letter is marked as either green, yellow or gray: green indicates that letter is correct and in the correct position, yellow means it is in the answer but not in the right position, while gray indicates it is not in the answer at all. Multiple instances of the same letter in a guess, such as the "o"s in "robot", will be colored green or yellow only if the letter also appears multiple times in the answer; otherwise, excess repeating letters will be colored gray. 
