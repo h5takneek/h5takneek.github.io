@@ -203,6 +203,7 @@ The game is implemented in Python using the `random` module to select a random w
 
 ## About the agent
 
+
 The approach to solving Wordle involves generating a list of possible words based on the feedback provided by the game. This list is initially populated with all valid five-letter words, and then filtered down based on the feedback received for each guess.
 
 The first step is to generate a list of all possible combinations of five letters, which is done using the `itertools` module. This list is then filtered down based on the feedback received for each guess, using a combination of string manipulation and list comprehension.
@@ -217,13 +218,36 @@ The process is repeated until the correct word is guessed, or until the maximum 
 
 Two approaches were considered while creating an agent for playing the game - one based on information theory and other based on exhaustive search.
 
-The information theory-based approach is implemented in the `info` function in the `solver.py` file. This approach involves calculating the entropy of each possible word based on the feedback received for each guess. The entropy is a measure of the amount of uncertainty associated with a random variable, and in this case, it represents the number of possible words that match the feedback received. The solver then selects the word with the lowest entropy as the next guess, as this word provides the most information about the remaining possible words.
+The information theory-based approach is implemented in the `info` function in the `solver.py` file. This approach involves calculating the entropy of each possible word based on the feedback received for each guess. The entropy is a measure of the amount of uncertainty associated with a random variable, and in this case, it represents the number of possible words that match the feedback received. The solver then selects the word with the lowest entropy as the next guess, as this word provides the most information about the remaining possible words. 
 
-On the other hand, the exhaustive search approach involves generating all possible combinations of five letters and testing each one against the feedback received for each guess. This approach is computationally expensive and not practical for large dictionaries, but it guarantees a correct solution within a finite number of guesses. 
+The code finds the most optimal guess based on the recieved feedback of the previous guesses. It find the information gain for each possible word in the dictionary for each possible feedback(243 to be exact). It then chooses the word with the highest information game as the next guess. This approach was computationally very expensive and thus the first four most optimal guesses were precomputed on a dictionary of around 13000 words.
 
-Both approaches were implemented, and accuracy was compared. Information theory was found to have a higher level of accuracy but higher computational power was required. A tradeoff was achieved between the two approaches in the final code.
+```python
+for i, word in enumerate(bigDict):
+                sum = 0
+                #print("The word is : " + word)
+                for feedback in self.constState:
+                    temp = WordleSolver(dict, self.optimal_second)
+                    test = word+feedback
+                    #print(temp.dictionary)
+                    temp.update(test)
+                    size = len(temp.dictionary)
+                    p = size/float(og_size)
+                    if size != 0:
+                        sum -= p*math.log(p, 2)
+                        #print("word: " + word + feedback + "info: " + str(math.log(p, 2)))
+                        #print("The info gain is:" + str(sum) + " for word " + word + " and feedback " + feedback)     
+                if sum > max:
+                    max = sum
+                    optimal = i
+            return optimal
+```
 
-We have achieved a `91.5%` accuracy using a dictionary of `5757` words, with an average strike rate of `3.491`.
+On the other hand, the exhaustive search approach involves generating all possible combinations of five letters and testing each one against the feedback received for each guess. This approach is computationally expensive and not practical for large dictionaries and it also struggles with words such as jolly since it correctly generates the mask _olly but ends up guessing holly, molly, lolly with no optimal way to choose the best guess among them. 
+
+Both approaches were implemented, and accuracy was compared. Information theory was found to have a higher level of accuracy but higher computational power was required. Thus we ended up precomputing the first four most optimal guesses computed using information theory on a dictionary of almost 13000 words. 
+
+We have achieved a `97.9%` accuracy using a dictionary of `12953` words, with an average strike rate of `4.451`.
 
 
 ![Acc vs iterations](success_rate.png)
