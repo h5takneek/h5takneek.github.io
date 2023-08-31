@@ -31,6 +31,7 @@ Steps you should follow:
 <h3>Interface</h3>
 We present a novel interface for implementing a server that allows us to play word games like Wordle, Hangman, etc. 
 Steps you should follow:
+
 - Choose the word game. 
 - Choose whether you want to play as user or you want the agent to play. 
 - If former option is selected then our program will help the user (in case of wordle, and nerdle) in guessing or will make the user play. </li>
